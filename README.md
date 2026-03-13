@@ -10,7 +10,7 @@ App de página institucional (Garantia e Suporte) com formulário de reporte de 
 
 2. **Clone o repositório** e entre na pasta do app:
    ```bash
-   cd desafio-frn-minimum-theme
+   cd desafio-frn
    ```
 
 3. **Ajuste o `manifest.json`** (se necessário): `vendor` deve ser o nome da sua conta VTEX.
