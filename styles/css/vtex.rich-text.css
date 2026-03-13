@@ -1,0 +1,33 @@
+.container--garantiaTitle {
+  margin-bottom: 12px;
+}
+
+.heading--garantiaTitle {
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #101828;
+  margin: 0;
+}
+
+.container--garantiaBody {
+  margin-bottom: 32px;
+}
+
+.paragraph--garantiaBody {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #667085;
+  margin: 0;
+}
+
+@media screen and (max-width: 640px) {
+  .heading--garantiaTitle {
+    font-size: 30px;
+  }
+
+  .paragraph--garantiaBody {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}

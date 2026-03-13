@@ -1,0 +1,11 @@
+{
+  "contact-product-form": {
+    "component": "ContactProductForm"
+  },
+  "editable-carousel": {
+    "component": "EditableCarousel"
+  },
+  "banner-hero": {
+    "component": "BannerHero"
+  }
+}

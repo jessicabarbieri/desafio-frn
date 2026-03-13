@@ -1,0 +1,9 @@
+{
+  "extends": "@vtex/tsconfig",
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es2017"
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"]
+}

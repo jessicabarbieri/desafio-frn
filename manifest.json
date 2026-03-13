@@ -1,0 +1,24 @@
+{
+  "vendor": "frncubo",
+  "name": "garantia-desafio",
+  "version": "0.1.2",
+  "title": "Garantia Desafio",
+  "description": "Página institucional com formulário e carrossel editável",
+  "builders": {
+    "store": "0.x",
+    "react": "3.x",
+    "messages": "1.x",
+    "styles": "2.x"
+  },
+  "dependencies": {
+    "vtex.store": "2.x",
+    "vtex.store-components": "3.x",
+    "vtex.styleguide": "9.x",
+    "vtex.flex-layout": "0.x",
+    "vtex.rich-text": "0.x",
+    "vtex.slider-layout": "0.x",
+    "vtex.responsive-layout": "0.x",
+    "vtex.stack-layout": "0.x"
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}

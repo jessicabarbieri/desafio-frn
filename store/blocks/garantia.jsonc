@@ -1,0 +1,93 @@
+{
+  "store.custom#garantia": {
+    "blocks": ["flex-layout.row#garantia-page"]
+  },
+
+  "flex-layout.row#garantia-page": {
+    "props": {
+      "fullWidth": true,
+      "blockClass": "garantiaContainer"
+    },
+    "children": ["flex-layout.col#garantia-content"]
+  },
+
+"flex-layout.col#garantia-content": {
+  "props": {
+    "width": "100%",
+    "blockClass": "garantiaContent"
+  },
+  "children": [
+    "banner-hero#garantia",
+    "rich-text#garantia-title",
+    "rich-text#garantia-body",
+    "contact-product-form#garantia",
+    "editable-carousel#garantia"
+  ]
+},
+
+  "banner-hero#garantia": {
+    "props": {
+      "imageDesktop": "https://placehold.co/1440x420",
+      "alt": "Banner garantia"
+    }
+  },
+
+  "rich-text#garantia-title": {
+    "props": {
+      "text": "# Garantia e Suporte",
+      "blockClass": "garantiaTitle"
+    }
+  },
+
+  "rich-text#garantia-body": {
+    "props": {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dapibus euismod justo, quis rhoncus augue feugiat in. Fusce interdum eros in finibus tempus. Nam metus nulla, pulvinar id porttitor eget, pharetra eget elit. Nulla placerat ex at posuere efficitur. Mauris mollis justo justo, id aliquam libero finibus eget. Integer auctor ex ut est euismod maximus. Aliquam non lectus maximus, bibendum libero non, placerat quam. Vivamus felis est, semper sed nulla quis, convallis euismod nunc. Curabitur vel lectus lacinia, pulvinar lacus ac, dictum mauris. Donec bibendum vitae nunc commodo pellentesque. Phasellus lobortis dolor sit amet velit scelerisque, ac lobortis tellus rhoncus. Fusce pharetra facilisis mattis. Nullam posuere suscipit scelerisque. Vivamus a risus diam. Mauris elit nisl, cursus vel lacinia ut, ornare in turpis. Etiam pretium fermentum tempor. Morbi hendrerit vulputate nunc, et pulvinar nisi sollicitudin ac. Curabitur eget sem interdum, congue velit tincidunt, feugiat ipsum. Morbi mattis felis lacus, sed fermentum ex gravida non. Nunc commodo risus in turpis dignissim, tristique ultrices mauris maximus. Duis libero orci, bibendum eu condimentum eget, ultrices vitae nunc. Ut eget felis vitae elit varius placerat. In at ultricies dui, sit amet laoreet urna. Integer feugiat sapien sapien, eu mollis urna dictum eu. Donec gravida turpis.",
+      "blockClass": "garantiaBody"
+    }
+  },
+
+  "contact-product-form#garantia": {
+    "props": {
+      "maxFileSizeMB": 5,
+      "acceptedFileTypes": ["image/jpeg", "image/png"],
+      "blockClass": "garantiaForm",
+      "dataEntityAcronym": "PR"
+    }
+  },
+
+  "editable-carousel#garantia": {
+    "props": {
+      "showArrows": true,
+      "showDots": true,
+      "itemsPerPageDesktop": 3,
+      "itemsPerPageTablet": 2,
+      "itemsPerPageMobile": 1,
+      "items": [
+        {
+          "__editorItemTitle": "Slide 1",
+          "image": "https://placehold.co/600x400",
+          "imageAlt": "Atendimento rápido",
+          "title": "Atendimento rápido",
+          "text": "Nossa equipe recebe e analisa sua solicitação com agilidade.",
+          "link": "/institucional/garantia"
+        },
+        {
+          "__editorItemTitle": "Slide 2",
+          "image": "https://placehold.co/600x400",
+          "imageAlt": "Envio de evidências",
+          "title": "Envio de evidências",
+          "text": "Anexe uma foto do produto para agilizar o suporte.",
+          "link": "/institucional/garantia"
+        },
+        {
+          "__editorItemTitle": "Slide 3",
+          "image": "https://placehold.co/600x400",
+          "imageAlt": "Suporte especializado",
+          "title": "Suporte especializado",
+          "text": "Seu relato fica centralizado para acompanhamento interno.",
+          "link": "/institucional/garantia"
+        }
+      ]
+    }
+  }
+}

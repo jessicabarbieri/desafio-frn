@@ -1,0 +1,26 @@
+.flexRow--garantiaContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 32px;
+  padding-bottom: 48px;
+  box-sizing: border-box;
+}
+
+.flexCol--garantiaContent {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 640px) {
+  .flexRow--garantiaContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+}
