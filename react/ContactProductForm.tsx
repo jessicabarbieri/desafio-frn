@@ -28,14 +28,12 @@ const initialState: FormDataShape = {
   message: '',
 }
 
-const MD_DOCUMENTS_PATH = (acronym: string) =>
-  `/api/dataentities/${acronym}/documents`
+const PRODUCT_REPORT_PATH = '/_v/garantia-desafio/product-report'
 
 const ContactProductForm = ({
   maxFileSizeMB = 5,
   acceptedFileTypes = ['image/jpeg', 'image/png'],
   blockClass = '',
-  dataEntityAcronym = 'PR',
 }: Props) => {
   const [form, setForm] = useState<FormDataShape>(initialState)
   const [file, setFile] = useState<File | null>(null)
@@ -147,24 +145,20 @@ const ContactProductForm = ({
         image: imageBase64 || undefined,
       }
 
-      const res = await fetch(MD_DOCUMENTS_PATH(dataEntityAcronym), {
+      const res = await fetch(PRODUCT_REPORT_PATH, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
         credentials: 'same-origin',
       })
 
+      const data = (await res.json().catch(() => ({}))) as { id?: string; error?: string }
+
       if (!res.ok) {
-        const errText = await res.text()
-        throw new Error(errText || `HTTP ${res.status}`)
+        throw new Error(data.error || `HTTP ${res.status}`)
       }
 
-      const data = (await res.json().catch(() => ({}))) as {
-        DocumentId?: string
-        Id?: string
-        id?: string
-      }
-      const id = data.DocumentId ?? data.Id ?? data.id ?? null
+      const id = data.id ?? null
       setDocumentId(id)
       setStatus('success')
       setFeedbackMessage('Solicitação enviada com sucesso.')

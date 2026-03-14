@@ -1,6 +1,6 @@
 # Garantia Desafio – App VTEX IO
 
-App de página institucional (Garantia e Suporte) com formulário de reporte de produto, carrossel editável e banner. Integração com **Master Data V1** (entidade PR) e envio de e-mail via **trigger** na criação do documento.
+App de página institucional (Garantia e Suporte) com formulário de reporte de produto, carrossel editável e banner. Integração com **Master Data V1** (entidade PR) via **App Service (Node)** e envio de e-mail via **trigger** na criação do documento.
 
 ---
 
@@ -47,7 +47,16 @@ App de página institucional (Garantia e Suporte) com formulário de reporte de 
 - **Validações**: campos obrigatórios; e-mail com regex; tipo de arquivo (JPG/PNG) e tamanho máximo (ex.: 5 MB) configuráveis por prop; feedback por campo com `aria-invalid`, `data-invalid` e mensagens de erro.
 - **Acessibilidade**: labels associados aos inputs, `aria-required`, `aria-describedby` para erros, `role="alert"` nas mensagens, `aria-labelledby` na seção do form, `alt` nas imagens do carrossel e do banner.
 - **UX**: máscara de telefone (BR), placeholders, estados de loading/sucesso/erro, exibição do ID do documento criado no sucesso; estilos via **CSS Modules** (`ContactProductForm.css`).
-- **Documento no MD V1**: enviado direto do front (sem Node) via `POST /api/dataentities/{acronym}/documents`; payload com todos os campos da entidade. Trigger MD V1 configurado na entidade para disparar e-mail ao criar documento.
+- **Documento no MD V1**: o formulário envia os dados para o **App Service (Node)** em `POST /_v/garantia-desafio/product-report`. O backend valida, persiste na entidade **PR** do Master Data V1 e retorna **201** com o **id** do documento. Os campos com informação de usuário (`clientName`, `email`, `phone`) devem ser configurados como **privados** na entidade PR no admin do Master Data, para que apenas o app (com policy `ADMIN_DS`) possa gravá-los. Trigger MD V1 na entidade continua disparando o e-mail ao criar documento.
+
+---
+
+## App Service (Node) – Bônus
+
+- **Rota**: `POST /_v/garantia-desafio/product-report` (pública).
+- **Body**: JSON com `clientName`, `email`, `phone`, `orderId`, `invoiceNumber`, `skuId`, `ean`, `productName`, `message`, `image` (base64). Obrigatórios: `clientName`, `email`, `message`.
+- **Resposta**: `201` com `{ "id": "<documentId>" }` ou `400`/`500` com `{ "error": "..." }`.
+- **Master Data**: na entidade **PR** do Master Data V1, configure os campos **clientName**, **email** e **phone** como **privados** (schema da entidade no admin), para que apenas o serviço Node (com policy `ADMIN_DS`) possa gravá-los.
 
 ---
 
